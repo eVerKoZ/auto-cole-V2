@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useAuth } from './contexts/AuthContext';
+import { UserProvider } from './context/UserContext';
 
 // Layouts
 import MainLayout from './layouts/MainLayout';
@@ -32,31 +33,33 @@ function App() {
   }
 
   return (
-    <Router>
-      <Routes>
-        {/* Public Routes */}
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="login" element={<LoginPage />} />
-          <Route path="register" element={<RegisterPage />} />
-          <Route path="packages" element={<PackagesPage />} />
-          <Route path="contact" element={<ContactPage />} />
-        </Route>
+    <UserProvider>
+      <Router>
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="login" element={<LoginPage />} />
+            <Route path="register" element={<RegisterPage />} />
+            <Route path="packages" element={<PackagesPage />} />
+            <Route path="contact" element={<ContactPage />} />
+          </Route>
 
-        {/* Protected Routes */}
-        <Route path="/dashboard" element={<DashboardLayout />}>
-          <Route path="calendar" element={<CalendarPage />} />
-          <Route path="personal-info" element={<PersonalInfoPage />} />
-          <Route path="account" element={<AccountPage />} />
-          <Route path="reservations" element={<ReservationsPage />} />
-          <Route path="past-lessons" element={<PastLessonsPage />} />
-          <Route path="admin" element={<AdminPage />} />
-        </Route>
+          {/* Protected Routes */}
+          <Route path="/dashboard" element={<DashboardLayout />}>
+            <Route path="calendar" element={<CalendarPage />} />
+            <Route path="personal-info" element={<PersonalInfoPage />} />
+            <Route path="account" element={<AccountPage />} />
+            <Route path="reservations" element={<ReservationsPage />} />
+            <Route path="past-lessons" element={<PastLessonsPage />} />
+            <Route path="admin" element={<AdminPage />} />
+          </Route>
 
-        {/* 404 Route */}
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </Router>
+          {/* 404 Route */}
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Router>
+    </UserProvider>
   );
 }
 
