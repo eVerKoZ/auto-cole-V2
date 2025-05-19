@@ -15,7 +15,7 @@ import CalendarPage from './pages/CalendarPage';
 import ContactPage from './pages/ContactPage';
 import PersonalInfoPage from './pages/PersonalInfoPage';
 import AccountPage from './pages/AccountPage';
-import ReservationsPage from './pages/ReservationsPage';
+import ReservationsPage from './pages/Reservations';
 import PastLessonsPage from './pages/PastLessonsPage';
 import AdminPage from './pages/AdminPage';
 import NotFoundPage from './pages/NotFoundPage';
